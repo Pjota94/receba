@@ -7,38 +7,38 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
-  .img-login {
-    width: 39rem;
-    height: 42rem;
+  .img-register {
+    width: 37.875rem;
+    height: 34.75rem;
     margin-left: 8.937rem;
   }
 
   @media (max-width: 1124px) {
-    .img-login {
+    .img-register {
       width: 35rem;
-      height: 38rem;
+      height: 32rem;
       margin-left: 6.937rem;
     }
   }
 
   @media (max-width: 1024px) {
-    .img-login {
+    .img-register {
       width: 30rem;
-      height: 33rem;
+      height: 30rem;
       margin-left: 4.937rem;
     }
   }
 
   @media (max-width: 900px) {
-    .img-login {
+    .img-register {
       width: 25rem;
-      height: 28rem;
+      height: 23rem;
       margin-left: 2.937rem;
     }
   }
 
   @media (max-width: 795px) {
-    .img-login {
+    .img-register {
       display: none;
     }
   }
