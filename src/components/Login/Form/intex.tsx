@@ -1,7 +1,15 @@
+import { useForm } from "react-hook-form";
+import { ILoginProps } from "../../../interfaces/Login.interfaces";
 import Input from "../Input";
 import { FormStyle } from "./styles";
 
 const Form = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ILoginProps>();
+
   return (
     <FormStyle>
       <label className="label-username">Username</label>
