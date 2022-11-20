@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 23.375rem;
+  width: 21.375rem;
   height: 20.187rem;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -23,7 +23,7 @@ export const Container = styled.div`
   }
 
   .div-buttons {
-    width: 326.99px;
+    width: 294.99px;
   }
 
   button {
@@ -46,7 +46,7 @@ export const Container = styled.div`
   }
 
   .div-history {
-    width: 20.437rem;
+    width: 18.437rem;
     height: 11.812rem;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 8px;
@@ -63,5 +63,24 @@ export const Container = styled.div`
   .div-history::-webkit-scrollbar-thumb {
     background: rgba(108, 99, 255, 1);
     border-radius: 5px;
+  }
+
+  @media (max-width: 1094px) {
+    margin-top: 1rem;
+    width: 19.375rem;
+
+    .div-history {
+      width: 15.437rem;
+      height: 11.812rem;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 8px;
+      margin-top: 1.25rem;
+      border: 1px solid rgba(108, 99, 255, 1);
+      overflow: scroll;
+    }
+
+    .div-buttons {
+      width: 220.99px;
+    }
   }
 `;

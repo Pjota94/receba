@@ -87,4 +87,8 @@ export const Container = styled.div`
     line-height: 30px;
     color: rgba(108, 99, 255, 1);
   }
+
+  @media (max-width: 1094px) {
+    margin-top: 0.5rem;
+  }
 `;

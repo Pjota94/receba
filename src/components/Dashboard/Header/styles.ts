@@ -25,4 +25,15 @@ export const HeaderStyled = styled.header`
   button:hover {
     background-color: rgb(76, 68, 226);
   }
+
+  @media (max-width: 600px) {
+    button {
+      margin-right: 2.375rem;
+    }
+  }
+  @media (max-width: 450px) {
+    button {
+      width: 5.875rem;
+    }
+  }
 `;

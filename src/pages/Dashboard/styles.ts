@@ -30,6 +30,22 @@ export const Container = styled.div`
       height: 32.812rem;
     }
   }
+
+  @media (max-width: 1094px) {
+    .img-dash {
+      display: none;
+    }
+
+    .div-auxiliar1 {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title-dash {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
 `;
 
 export const Loading = styled.div`
