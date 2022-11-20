@@ -1,13 +1,14 @@
 import { Container } from "./styles";
 import "animate.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import api from "../../../services/api";
 import { useForm } from "react-hook-form";
-import { ITransfer, TransferContext } from "../../../context/TransferContext";
+import { TransferContext } from "../../../context/TransferContext";
+import { ITransfer } from "../../../interfaces/TransferContext.interface";
 
 const Transfer = () => {
   const { transferMoney, balance, setBalance } = useContext(TransferContext);
-  // const [balance, setBalance] = useState("");
+
   const token = window.localStorage.getItem("@recebaToken");
 
   useEffect(() => {
@@ -23,11 +24,7 @@ const Transfer = () => {
       });
   }, [token]);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ITransfer>();
+  const { register, handleSubmit } = useForm<ITransfer>();
 
   return (
     <Container className="animate__animated animate__zoomInDown">

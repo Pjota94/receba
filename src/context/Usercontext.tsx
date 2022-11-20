@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import { IRegisterProps } from "../interfaces/Register.interfaces";
 import {
   IProviderProps,
@@ -19,7 +19,29 @@ export const UserContext = createContext<IValuePropsUser>(
 );
 
 export const UserContextProvider = ({ children }: IProviderProps) => {
+  const [user, setUser] = useState("");
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
+
+  const token = window.localStorage.getItem("@recebaToken");
+
+  useEffect(() => {
+    async function loadUser() {
+      const token = window.localStorage.getItem("@recebaToken");
+
+      if (token) {
+        try {
+          api.defaults.headers.authorization = `Bearer ${token}`;
+          const { data } = await api.get("users/profile");
+          setUser(data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      setLoading(false);
+    }
+    loadUser();
+  });
 
   const onLogin = (data: ILoginProps) => {
     api
@@ -49,7 +71,9 @@ export const UserContextProvider = ({ children }: IProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{ onRegister, onLogin }}>
+    <UserContext.Provider
+      value={{ onRegister, onLogin, user, setUser, loading, setLoading }}
+    >
       {children}
     </UserContext.Provider>
   );

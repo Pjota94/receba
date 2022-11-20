@@ -1,24 +1,28 @@
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext, useState } from "react";
 import { ICardHistory } from "../components/Dashboard/CardHistory";
 import { IProviderProps } from "../interfaces/UserContext.interface";
 import api from "../services/api";
 import toast from "react-hot-toast";
+import {
+  ITransfer,
+  IValuesPropsTransfer,
+} from "../interfaces/TransferContext.interface";
 
-export interface IValuesPropsTransfer {
-  transactions: ICardHistory[];
-  setTransactinos: Dispatch<SetStateAction<ICardHistory[]>>;
-  allHistory: () => void;
-  cashInHistory: () => void;
-  cashOutHistory: () => void;
-  transferMoney: (data: ITransfer) => void;
-  balance: string;
-  setBalance: Dispatch<SetStateAction<string>>;
-}
+// export interface IValuesPropsTransfer {
+//   transactions: ICardHistory[];
+//   setTransactinos: Dispatch<SetStateAction<ICardHistory[]>>;
+//   allHistory: () => void;
+//   cashInHistory: () => void;
+//   cashOutHistory: () => void;
+//   transferMoney: (data: ITransfer) => void;
+//   balance: string;
+//   setBalance: Dispatch<SetStateAction<string>>;
+// }
 
-export interface ITransfer {
-  username: string;
-  value: number;
-}
+// export interface ITransfer {
+//   username: string;
+//   value: number;
+// }
 
 export const TransferContext = createContext<IValuesPropsTransfer>(
   {} as IValuesPropsTransfer

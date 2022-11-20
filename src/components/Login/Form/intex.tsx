@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../../context/Usercontext";
-
 import { ILoginProps } from "../../../interfaces/Login.interfaces";
 import Input from "../Input";
 import { FormStyle } from "./styles";
@@ -9,11 +8,7 @@ import { FormStyle } from "./styles";
 const Form = () => {
   const { onLogin } = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<ILoginProps>();
+  const { register, handleSubmit } = useForm<ILoginProps>();
 
   return (
     <FormStyle onSubmit={handleSubmit(onLogin)}>

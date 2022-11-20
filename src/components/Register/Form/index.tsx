@@ -8,11 +8,7 @@ import { UserContext } from "../../../context/Usercontext";
 const Form = () => {
   const { onRegister } = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IRegisterProps>();
+  const { register, handleSubmit } = useForm<IRegisterProps>();
 
   return (
     <FormStyle onSubmit={handleSubmit(onRegister)}>

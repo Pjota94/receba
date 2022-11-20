@@ -1,34 +1,30 @@
 import Header from "../../components/Dashboard/Header";
 import Transfer from "../../components/Dashboard/Transfer";
-import { Container } from "./styles";
+import { Container, Loading } from "./styles";
 import imgDash from "../../assets/dash.png";
 import History from "../../components/Dashboard/History";
 import "animate.css";
-import { useEffect, useState } from "react";
-import api from "../../services/api";
+import { useContext } from "react";
+import { UserContext } from "../../context/Usercontext";
+import { Navigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const [name, setName] = useState("");
-  const token = window.localStorage.getItem("@recebaToken");
+  const { user, loading } = useContext(UserContext);
 
-  useEffect(() => {
-    api.defaults.headers.authorization = `Bearer ${token}`;
-    api
-      .get("users/profile")
-      .then((response) => {
-        setName(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [token]);
+  if (loading) {
+    return (
+      <Loading>
+        <span>Carregando...</span>
+      </Loading>
+    );
+  }
 
-  return (
+  return user ? (
     <Container>
       <Header />
       <div className="div-auxiliar1">
         <div>
-          <p className="title-dash">Welcome back, {name}!</p>
+          <p className="title-dash">Welcome back, {user}!</p>
           <Transfer />
         </div>
         <img
@@ -39,6 +35,8 @@ const Dashboard = () => {
         <History />
       </div>
     </Container>
+  ) : (
+    <Navigate to="/" replace />
   );
 };
 
